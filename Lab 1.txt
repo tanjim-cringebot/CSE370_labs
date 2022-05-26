@@ -1,0 +1,10 @@
+1. ALTER TABLE transformers_table CHANGE Power Base_Might int;
+2. ALTER TABLE transformers_table CHANGE Date Autobot_Registration_Date date;
+3. UPDATE transformers_table SET Weapon = "Ion Blaster" WHERE Name = "Optimus Prime";
+4. SELECT Name, Type, Weapon FROM transformers_table WHERE Department = "Engineering" AND year(Autobot_Registration_date) >= 2015;
+5. SELECT * FROM transformers_table ORDER BY Rank ASC, Weapon DESC;
+6. ALTER TABLE transformers_table CHANGE Rank Rank char(2) CHECK(CAST(Rank as int) <= 10);
+7. SELECT ((Base_Might  * 130) / 100) + (((Rank * 3500) + 600) / 20) AS Bonus_Might FROM transformers_table;
+8. ALTER TABLE transformers_table ADD Expiry_Date date;
+9. DELETE FROM transformers_table WHERE Base_Might < 10000;
+10. SELECT * from transformers_table WHERE Name LIKE "%a%";

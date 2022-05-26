@@ -1,0 +1,12 @@
+1. SELECT c_id, email, start_date FROM amazon WHERE credit_points > 5000;
+2. SELECT DISTINCT(c_factor) FROM amazon ORDER BY c_factor DESC;
+3. SELECT c_id FROM amazon WHERE mod(c_factor, 2) = 1;
+4. SELECT avg(length(name)) FROM amazon;
+5. SELECT c_id, email, start_date FROM amazon WHERE year(start_date) >= 2018 AND year(start_date) <= 2020;
+6. SELECT * FROM amazon ORDER BY start_date DESC LIMIT 6;
+7. SELECT c_id, email FROM amazon WHERE email LIKE '%yahoo.com%';
+8. SELECT c_id, email FROM amazon WHERE credit_points >= 6000 AND credit_points <= 9000 AND start_date > "2018/06/30";
+9. SELECT c_id, email, credit_points FROM amazon WHERE name LIKE '%a%' LIKE '%e%' LIKE '%i%';
+10. SELECT max(credit_points) FROM amazon WHERE c_factor > 10;
+11. SELECT count(*) FROM amazon WHERE start_date >= '2019/01/01';
+12. SELECT avg(credit_points) FROM amazon WHERE start_date < "2020/06/01";

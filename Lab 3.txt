@@ -1,0 +1,15 @@
+Q1. 
+a) SELECT order_no FROM orders WHERE purchase_amt > (SELECT avg(purchase_amt) FROM orders);
+b) SELECT * FROM orders WHERE salesman_id = (SELECT salesman_id FROM orders WHERE customer_id = 309);
+c) SELECT order_no, order_date FROM orders WHERE year(order_date) = '2021' AND purchase_amt > (SELECT MAX(purchase_amt) FROM orders WHERE year(order_date) = '2020');
+
+Q2.
+a) SELECT * FROM employees WHERE salary BETWEEN (SELECT min(salary) FROM employees) and 2500;
+b) SELECT first_name, last_name, department_id FROM employees WHERE salary = (SELECT min(salary) FROM employees);
+c) SELECT first_name, last_name, salary, department_id FROM employees WHERE salary IN (SELECT min(salary) FROM employees GROUP BY department_id);
+
+Q3.
+a) SELECT student_id, name FROM final_marks WHERE lab_marks = (SELECT min(lab_marks) FROM final_marks);
+b) SELECT student_id, name, cgpa FROM final_marks WHERE theory_marks IN (SELECT MAX(theory_marks) FROM final_marks GROUP BY dept HAVING count(dept) > 2);
+c) SELECT name FROM final_marks WHERE dept = "BBS" AND CGPA = any(SELECT cgpa FROM final_marks WHERE dept = "ENH");
+d) SELECT name, student_id, lab_marks FROM final_marks WHERE dept = "CSE" AND theory_marks > all(SELECT theory_marks FROM final_marks WHERE dept = "CS");
